@@ -21,15 +21,20 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
+              "src/favicon.ico",
+              "src/assets",
               {
                 "glob": "**/*",
                 "input": "public"
               }
+              
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+               "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
-            "scripts": [],
+            "scripts": [
+            ],
             "server": "src/main.server.ts",
             "outputMode": "server",
             "ssr": {

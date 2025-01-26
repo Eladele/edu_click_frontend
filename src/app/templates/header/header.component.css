@@ -1,0 +1,75 @@
+header {
+    background-color: #1e5b87; /* Changement de la couleur de fond */
+    border-bottom: 2px solid #154360; /* Bordure plus foncée pour le contraste */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre pour la profondeur */
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    max-height: 50px;
+    margin-right: 10px;
+  }
+  
+  .logo h1 {
+    font-size: 24px;
+    color: #ffffff; /* Texte en blanc pour contraster avec le fond */
+    margin: 0;
+    font-weight: 600; /* Texte en gras pour plus de visibilité */
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+  }
+  
+  nav ul li {
+    display: flex;
+    align-items: center;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #ffffff; /* Texte en blanc pour contraster avec le fond */
+    font-size: 16px;
+    transition: color 0.3s ease; /* Transition douce pour le survol */
+  }
+  
+  nav ul li a:hover {
+    color: #aad8f3; /* Couleur plus claire pour le survol */
+  }
+  
+  nav ul li select {
+    padding: 5px;
+    font-size: 16px;
+    background-color: #ffffff; /* Fond blanc pour le select */
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    color: #333333;
+  }
+  
+  nav ul li button {
+    background-color: #ffffff; /* Fond blanc pour le bouton */
+    color: #1e5b87; /* Texte dans la couleur principale */
+    border: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition douce */
+  }
+  
+  nav ul li button:hover {
+    background-color: #aad8f3; /* Couleur plus claire pour le survol */
+    color: #1e5b87; /* Texte dans la couleur principale */
+  }
