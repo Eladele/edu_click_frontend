@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<div class="hero text-center text-white py-5">
+    <div class="container">
+      <h1>Trouvez votre professeur et libérez votre potentiel !</h1>
+      <form (ngSubmit)="onSearch()" class="form-inline justify-content-center">
+        <div class="form-group mx-sm-6 mb-2">
+          <input
+            type="text"
+            [(ngModel)]="searchQuery"
+            name="matiere"
+            class="form-control"
+            placeholder="Sélectionner une matière"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-light mb-2">Rechercher</button>
+      </form>
+  
+      <div *ngIf="professeurs?.length > 0" class="container my-5">
+        <h2>Résultats de la recherche pour "{{ searchQuery }}"</h2>
+        <div class="row">
+          <div *ngFor="let professeur of professeurs" class="col-md-12 mb-4 text-dark">
+            <div class="card h-100">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img
+                    [src]="professeur.image || 'assets/images/user.png'"
+                    class="card-img"
+                    [alt]="professeur.nom"
+                  />
+                  <br />
+                  <a
+                    [routerLink]="['/professeurs', professeur.id]"
+                    class="btn btn-primary mt-2"
+                  >
+                    Voir le profil
+                  </a>
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      {{ professeur.nom }} {{ professeur.prenom }}
+                    </h5>
+                    <span class="card-text"
+                      ><small class="text-muted">{{
+                        professeur.ville
+                      }}, {{ professeur.adresse }}</small
+                    ></span>
+                    <br />
+                    <p class="card-text">
+                      <span class="font-weight-bold">Disponibilité:</span>
+                      <span
+                        *ngFor="let jour of professeur.disponibilites"
+                        class="badge badge-pill badge-info"
+                        >{{ jour }}</span
+                      >
+                    </p>
+                    <p class="card-text">
+                      <strong>Prix:</strong> {{ professeur.prix }} UM/hr
+                    </p>
+                    <p class="card-text">
+                      <strong>Enseignement:</strong>
+                      <span
+                        *ngFor="let lieu of professeur.lieuxEnseignement"
+                        class="badge badge-pill badge-secondary"
+                        >{{ lieu }}</span
+                      >
+                    </p>
+                    <p class="card-text">{{ professeur.biographie }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div *ngIf="!professeurs?.length && searchQuery" class="popular-searches">
+        <p>Recherches populaires: Français, Marketing, Comptabilité, Anglais, Développement Web</p>
+      </div>
+    </div>
+  </div>
+  
+  <section class="how-it-works py-5 text-center">
+    <div class="container">
+      <h2>Comment ça marche pour les étudiants ?</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <img
+            src="assets/images/step1.png"
+            alt="Étape 1"
+            class="img-fluid"
+          />
+          <h3>Étape 1</h3>
+          <p>Prendre un pass</p>
+        </div>
+        <div class="col-md-4">
+          <img
+            src="assets/images/step2.png"
+            alt="Étape 2"
+            class="img-fluid"
+          />
+          <h3>Étape 2</h3>
+          <p>Contactez Professeur</p>
+        </div>
+        <div class="col-md-4">
+          <img
+            src="assets/images/step3.png"
+            alt="Étape 3"
+            class="img-fluid"
+          />
+          <h3>Étape 3</h3>
+          <p>Développer vos compétences</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="categories py-5 bg-light text-center">
+    <div class="container">
+      <h2>Nos catégories les plus consultées</h2>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card">
+            <img
+              src="assets/images/category1.png"
+              class="card-img-top"
+              alt="Sciences exactes et ingénierie"
+            />
+            <div class="card-body">
+              <p class="card-text">Sciences exactes et ingénierie</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img
+              src="assets/images/category2.png"
+              class="card-img-top"
+              alt="Sciences économiques et commerciales"
+            />
+            <div class="card-body">
+              <p class="card-text">Sciences économiques et commerciales</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img
+              src="assets/images/category3.png"
+              class="card-img-top"
+              alt="Arts et Musique"
+            />
+            <div class="card-body">
+              <p class="card-text">Arts et Musique</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img
+              src="assets/images/category4.png"
+              class="card-img-top"
+              alt="Santé et sports"
+            />
+            <div class="card-body">
+              <p class="card-text">Santé et sports</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
