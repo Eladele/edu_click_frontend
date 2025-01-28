@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms'
 import { RouterLink } from '@angular/router';
 import { HeaderComponent } from '../../templates/header/header.component';
+import { MatIconModule } from '@angular/material/icon';
+
 interface Professeur {
   id: number;
   nom: string;
@@ -21,7 +23,7 @@ interface Professeur {
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css'],
   standalone: true,
-  imports: [FormsModule, RouterLink, CommonModule, HeaderComponent],
+  imports: [FormsModule, RouterLink, CommonModule, HeaderComponent, MatIconModule],
 })
 export class IndexComponent {
   searchQuery: string = '';
@@ -32,12 +34,12 @@ export class IndexComponent {
       ? [
           {
             id: 1,
-            nom: 'Doe',
-            prenom: 'John',
+            nom: 'Abdallahi',
+            prenom: 'Lili',
             image: 'assets/images/professeur1.jpg',
             ville: 'Nouakchott',
             adresse: 'Centre ville',
-            disponibilites: ['Lundi', 'Mardi'],
+            disponibilites: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
             prix: 5000,
             lieuxEnseignement: ['En ligne', 'À domicile'],
             biographie: 'Professeur expérimenté en Mathématiques.',

@@ -47,7 +47,7 @@
       .card-price {
         margin: 10px 0;
         font-size: 16px;
-        color: #007bff;
+        color: #1e5b87;
         font-weight: bold;
       }
   
@@ -57,7 +57,7 @@
         .badge {
           display: inline-block;
           background-color: #e7f3fe;
-          color: #007bff;
+          color: #1e5b87;
           font-size: 12px;
           padding: 5px 10px;
           border-radius: 20px;
@@ -76,14 +76,14 @@
   
           i {
             margin-right: 5px;
-            color: #007bff;
+            color: #1e5b87;
           }
         }
       }
   
-      .btn {
+      .btn-custom {
         display: inline-block;
-        background-color: #007bff;
+        background-color: #1e5b87;
         color: #fff;
         font-size: 14px;
         padding: 10px 20px;
@@ -100,4 +100,43 @@
       }
     }
   }
+
+  .form-control {
+    display: flex;
+    border: 0;
+    outline: 0;
+  }
+  .input-group .form-control:focus {
+    outline: none; /* Supprime la ligne bleue */
+    box-shadow: none; /* Supprime l'ombre bleue */
+    border-color: #ccc; /* Facultatif : remet une bordure standard */
+  }
+
+  .input-custom{
+    padding: 10px;
+    margin: 0 5px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 20px;
+}
+  
+.btn-input{
+
+  background-color: #1e5b87;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 2px;
+
+}
+
+.alert-lieu {
+  background-color: rgba(32, 103, 136, 0.116);
+  font-weight: bold;
+}
+.alert-dispo {
+  background-color: rgba(102, 255, 0, 0.24);
+  font-weight: bold;
+}
   

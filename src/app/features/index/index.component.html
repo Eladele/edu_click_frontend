@@ -6,82 +6,91 @@
 <div class="hero text-center text-white py-5">
   <div class="container">
     <h1>Trouvez votre professeur et libérez votre potentiel !</h1>
-    <form (ngSubmit)="onSearch()" class="form-inline justify-content-center">
-      <div class="form-group mx-sm-6 mb-2">
-        <input
-          type="text"
-          [(ngModel)]="searchQuery"
-          name="matiere"
-          class="form-control"
-          placeholder="Sélectionner une matière"
-          required
-        />
+    <form (ngSubmit)="onSearch()" class="search-form">
+      <div class="input-group input-custom">
+        <input type="text" [(ngModel)]="searchQuery" name="matiere" class="form-control"
+          placeholder="Sélectionner une matière" required />
+        <button type="submit" class="btn btn-input">Rechercher</button>
       </div>
-      <button type="submit" class="btn btn-light mb-2">Rechercher</button>
     </form>
 
-    @if (professeurs.length > 0) {
-      <div class="container my-5">
-        <h2>Résultats de la recherche pour "{{ searchQuery }}"</h2>
-        <div class="row">
-          @for (professeur of professeurs; track professeur.id) {
-            <div class="col-md-12 mb-4 text-dark">
-              <div class="card-profil h-100">
-                <div class="row no-gutters">
-                  <div class="col-md-4 pt-3">
-                   <!-- image place -->
-                   <img src="assets/images/cv-img.jpg" alt="Photo du professeur" class="prof-img" width="80%" />
 
-                    
-                    <br />
-                    <a
-                      [routerLink]="['/professeurs', professeur.id]"
-                      class="btn btn-primary mt-2"
-                    >
-                      Voir le profil
-                    </a>
+    @if (professeurs.length > 0) {
+    <div class="container my-5">
+      <h2>Résultats de la recherche pour "{{ searchQuery }}"</h2>
+      <div class="row">
+        @for (professeur of professeurs; track professeur.id) {
+        <div class="col-md-12 mb-4 text-dark">
+          <div class="card-profil h-100">
+            <div class="row no-gutters">
+              <div class="col-md-4 pt-3">
+                <!-- image place -->
+                <img src="assets/images/cv-img.jpg" alt="Photo du professeur" class="prof-img" width="80%" />
+
+
+                <br />
+                <a [routerLink]="['/professeurs', professeur.id]" class="btn btn-primary mt-2">
+                  Voir le profil
+                </a>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body text-start">
+                  <h5 class="card-title">
+                    {{ professeur.nom || 'Nom inconnu' }} {{ professeur.prenom || '' }}
+                  </h5>
+                  <span class="card-text">
+                    <small class="text-muted">
+                      {{ professeur.ville || 'Ville inconnue' }}, {{ professeur.adresse || 'Adresse inconnue' }}
+                    </small>
+                  </span>
+                  <br />
+                  <div class="card-text row">
+                    <span class="font-weight-bold">Disponibilité:</span>
+                    @for (jour of professeur.disponibilites || []; track jour) {
+                    <div class=" alert alert-dispo text-height col-2 text-center p-1 m-1">{{ jour }}</div>
+                    }
                   </div>
-                  <div class="col-md-8">
-                    <div class="card-body text-start">
-                      <h5 class="card-title">
-                        {{ professeur.nom || 'Nom inconnu' }} {{ professeur.prenom || '' }}
-                      </h5>
-                      <span class="card-text">
-                        <small class="text-muted">
-                          {{ professeur.ville || 'Ville inconnue' }}, {{ professeur.adresse || 'Adresse inconnue' }}
-                        </small>
-                      </span>
-                      <br />
-                      <p class="card-text">
-                        <span class="font-weight-bold">Disponibilité:</span>
-                        @for (jour of professeur.disponibilites || []; track jour) {
-                          <span class="badge badge-pill badge-info">{{ jour }}</span>
+                  <p class="card-text">
+                    <strong>Prix:</strong> {{ professeur.prix || 0 }} UM/hr
+                  </p>
+                  <div class="card-text row">
+                    <strong>Enseignement:</strong><br>
+                    @for (lieu of professeur.lieuxEnseignement || []; track lieu) {
+                    <div class="alert alert-lieu text-height col-3 txt-center p-1 pb-0 mx-3">
+                      <div class="d-flex justify-content-start">
+                        @if (lieu === "En ligne") {
+                        <div class="m-0 mx-2">
+                          <mat-icon class="icon">videocam</mat-icon> <!-- Icône pour "En ligne" -->
+                        </div>
                         }
-                      </p>
-                      <p class="card-text">
-                        <strong>Prix:</strong> {{ professeur.prix || 0 }} UM/hr
-                      </p>
-                      <p class="card-text">
-                        <strong>Enseignement:</strong>
-                        @for (lieu of professeur.lieuxEnseignement || []; track lieu) {
-                          <span class="badge badge-pill badge-secondary">{{ lieu }}</span>
+                        @if (lieu === "À domicile") {
+                        <div class="m-0 mx-2 ">
+                          <mat-icon class="icon">room</mat-icon> <!-- Icône pour "Domicile" -->
+                        </div>
                         }
-                      </p>
-                      <p class="card-text">{{ professeur.biographie || 'Biographie non disponible' }}</p>
+                        <div>
+                        {{ lieu }}
+                      </div>
+                      </div>
                     </div>
+                    }
                   </div>
+
+                  <p class="card-text">{{ professeur.biographie || 'Biographie non disponible' }}</p>
                 </div>
               </div>
             </div>
-          }
+          </div>
         </div>
+        }
       </div>
+    </div>
     }
 
     @if (professeurs.length === 0 && searchQuery) {
-      <div class="popular-searches">
-        <p>Recherches populaires: Français, Marketing, Comptabilité, Anglais, Développement Web</p>
-      </div>
+    <div class="popular-searches">
+      <p>Recherches populaires: Français, Marketing, Comptabilité, Anglais, Développement Web</p>
+    </div>
     }
   </div>
 </div>

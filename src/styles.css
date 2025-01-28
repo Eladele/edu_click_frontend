@@ -36,7 +36,7 @@ header .nav-links li a {
 
 /* Hero Section Styles */
 .hero {
-    background: #004085;
+    background: #1e5b87;
     color: white;
     text-align: center;
     padding: 50px 0;
@@ -142,3 +142,6 @@ footer {
 }
 
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
