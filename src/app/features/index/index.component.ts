@@ -1,22 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, computed } from '@angular/core';
 import {FormsModule} from '@angular/forms'
 import { RouterLink } from '@angular/router';
 import { HeaderComponent } from '../../templates/header/header.component';
 import { MatIconModule } from '@angular/material/icon';
+import { ProfesseurService } from '../professeurs/professeur.service';
+import { IProfesseur } from "../../shared/models/professeur.model";
 
-interface Professeur {
-  id: number;
-  nom: string;
-  prenom: string;
-  image : string;
-  ville: string;
-  adresse: string;
-  disponibilites: string[];
-  prix: number;
-  lieuxEnseignement: string[];
-  biographie: string;
-}
+
 
 @Component({
   selector: 'app-index',
@@ -27,24 +18,16 @@ interface Professeur {
 })
 export class IndexComponent {
   searchQuery: string = '';
-  professeurs: Professeur[] = []; // Initialize as an empty array
+  professeurs: IProfesseur[] = []; // Initialize as an empty array
+
+  constructor(private professeurService: ProfesseurService) {
+    this.professeurs = this.professeurService.getAllProfesseurs();
+  }
 
   onSearch() {
     this.professeurs = this.searchQuery
-      ? [
-          {
-            id: 1,
-            nom: 'Abdallahi',
-            prenom: 'Lili',
-            image: 'assets/images/professeur1.jpg',
-            ville: 'Nouakchott',
-            adresse: 'Centre ville',
-            disponibilites: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
-            prix: 5000,
-            lieuxEnseignement: ['En ligne', 'À domicile'],
-            biographie: 'Professeur expérimenté en Mathématiques.',
-          },
-        ]
+      ? this.professeurService.getAllProfesseurs().filter(prof => 
+          prof.nom.includes(this.searchQuery))
       : []; // Ensure it's an empty array if no search query
   }
 }
