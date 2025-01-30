@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<div class="container align-items-center" [ngClass]="{'active': isRegisterActive}">
+    <!-- Formulaire d'inscription -->
+    <div class="form-container sign-up">
+        <form (ngSubmit)="onRegisterSubmit()">
+
+            <div class="social-icons">
+
+            </div>
+            <!-- <span>ou utilisez votre email pour vous inscrire</span> -->
+            <input type="text" placeholder="Prénom" [(ngModel)]="registerFirstName" name="registerFirstName" required>
+            <input type="text" placeholder="Nom de famille" [(ngModel)]="registerLastName" name="registerLastName"
+                required>
+            <div class="phone-input-container">
+                <!-- <select class="select-phone" name="country" required>
+                  <option value="+222">+222</option>
+                </select> -->
+                <input type="text" class="select-phone" value="+222" readonly>
+                <input class="input-phone" type="tel" placeholder="Numéro de téléphone" [(ngModel)]="registerPhone"
+                    name="registerPhone" required>
+            </div> <input type="email" placeholder="Saisissez votre adresse électronique" [(ngModel)]="registerEmail"
+                name="registerEmail" required>
+            <input type="password" placeholder="Saisir le mot de passe" [(ngModel)]="registerPassword"
+                name="registerPassword" required>
+                <div>
+                    <div class="row d-flex align-items-center">
+                        <div class="col-auto">
+                            <input type="radio" [(ngModel)]="registerRole" name="registerRole" value="Professeur" required>
+                            <label class="ms-2">Professeur</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="radio" [(ngModel)]="registerRole" name="registerRole" value="Étudiant" required>
+                            <label class="ms-2">Étudiant</label>
+                        </div>
+                    </div>
+                </div>
+
+            <button type="submit">S'inscrire</button>
+        </form>
+    </div>
+
+    <!-- Formulaire de connexion -->
+    <div class="form-container sign-in">
+        <form (ngSubmit)="onLoginSubmit()">
+            <h1>Se connecter</h1>
+            <div class="social-icons">
+                <h3>Ravis de vous accueillir 😊 !</h3>
+            </div>
+            <span>utilisez votre email et mot de passe</span>
+            <input type="email" placeholder="Email" [(ngModel)]="loginEmail" name="loginEmail" required>
+            <input type="password" placeholder="Mot de passe" [(ngModel)]="loginPassword" name="loginPassword" required>
+            <a href="#">Mot de passe perdu ?</a>
+            <button type="submit">Se connecter</button>
+        </form>
+    </div>
+
+    <!-- Panneau de bascule -->
+    <div class="toggle-container">
+        <div class="toggle">
+            <div class="toggle-panel toggle-left">
+                <h1>Bienvenue à nouveau !</h1>
+                <p>Entrez vos informations personnelles pour profiter de toutes les fonctionnalités du site</p>
+                <button class="hidden" (click)="toggleForm(false)">Se connecter</button>
+            </div>
+            <div class="toggle-panel toggle-right">
+                <h1>Bonjour, ami(e) !</h1>
+                <p>Inscrivez-vous avec vos informations personnelles pour profiter de toutes les fonctionnalités du site
+                </p>
+                <button class="hidden" (click)="toggleForm(true)">S'inscrire</button>
+            </div>
+        </div>
+    </div>
+</div>
