@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ProfesseurService } from '../professeurs/professeur.service';
 import { IProfesseur } from "../../shared/models/professeur.model";
 import { MasterComponent } from "../../templates/master/master.component";
+import { FooterComponent } from "../../templates/footer/footer.component";
 
 
 
@@ -15,7 +16,7 @@ import { MasterComponent } from "../../templates/master/master.component";
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css'],
   standalone: true,
-  imports: [FormsModule, RouterLink, CommonModule, HeaderComponent, MatIconModule, MasterComponent],
+  imports: [FormsModule, RouterLink, CommonModule, HeaderComponent, MatIconModule, MasterComponent, FooterComponent],
 })
 export class IndexComponent {
   searchQuery: string = '';
