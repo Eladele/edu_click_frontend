@@ -112,31 +112,46 @@
     border-color: #ccc; /* Facultatif : remet une bordure standard */
   }
 
-  .input-custom{
-    padding: 10px;
-    margin: 0 5px;
-    width: 100%;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    font-size: 20px;
+ /* Styles pour .input-custom */
+.input-custom {
+  padding: 10px;
+  margin: 0 5px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 20px;
+  box-sizing: border-box; /* Assure que padding et border sont inclus dans la largeur */
 }
-  
-.btn-input{
 
+/* Styles pour .btn-input */
+.btn-input {
   background-color: #1e5b87;
   color: #fff;
   font-size: 20px;
   border-radius: 2px;
-
+  border: none; /* Supprime la bordure par défaut */
+  padding: 10px 20px; /* Ajoute un padding pour un meilleur rendu */
+  cursor: pointer; /* Change le curseur en pointeur */
+  transition: background-color 0.3s ease; /* Ajoute une transition fluide */
 }
+
 
 .alert-lieu {
-  background-color: rgba(32, 103, 136, 0.116);
   font-weight: bold;
+  background-color: rgba(66, 153, 225, 0.1);
+  color: #2b6cb0;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  margin: 0.25rem;
+  
 }
 .alert-dispo {
-  background-color: rgba(102, 255, 0, 0.24);
-  font-weight: bold;
+  background-color: rgba(72, 187, 120, 0.1);
+  color: #2f855a;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  margin: 0.25rem;
+  display: inline-block;
 }
   

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <div>
-  <app-header></app-header>
+  <app-header (searchTriggered)="onSearchTriggered($event)"></app-header>
 </div>
 
-<div class="hero text-center text-white py-5">
+<div class="hero text-center py-5">
   <div class="container">
     <h1>Trouvez votre professeur et libérez votre potentiel !</h1>
+    @if (isSearchActive) {
     <form (ngSubmit)="onSearch()" class="search-form">
       <div class="input-group input-custom">
         <input type="text" [(ngModel)]="searchQuery" name="matiere" class="form-control"
@@ -14,6 +15,11 @@
       </div>
     </form>
 
+} @else {
+  <div class="container-blanc">
+    <app-master></app-master>
+  </div>
+}
 
     @if (professeurs.length > 0) {
     <div class="container my-5">
