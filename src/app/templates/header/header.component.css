@@ -88,10 +88,12 @@ nav ul li button:hover {
   padding: 20px;
   box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.1);
   transition: left 0.3s ease; /* Transition pour l'animation du menu */
+  z-index: 1000;
 }
 
 .sidebar.active {
   left: 0; /* Le menu apparaît lorsqu'il est activé */
+  z-index: 1000;
 }
 
 .sidebar ul {
@@ -130,6 +132,7 @@ nav ul li button:hover {
   /* Cache le menu principal (horizontal) et rend visible le menu sidebar */
   nav ul {
     display: none;
+    z-index: 1000;
   }
 
   /* Affiche le bouton hamburger */
@@ -166,6 +169,7 @@ header {
   transition: left 0.3s ease;
   padding-top: 60px;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
 }
 
 .sidebar.active {
@@ -178,6 +182,7 @@ header {
   font-size: 30px;
   color: #ffffff;
   cursor: pointer;
+  z-index: 1000;
 }
 
 /* Afficher la sidebar uniquement sur les petits écrans */
@@ -194,5 +199,7 @@ header {
   /* Sidebar */
   .sidebar {
     display: block;
+    z-index: 0;
+    color: rgba(0, 0, 0, .5);
   }
 }

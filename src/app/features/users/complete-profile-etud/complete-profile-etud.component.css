@@ -1,27 +1,58 @@
 .profile-container {
-    background-color: #fff;
-    padding: 40px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    max-width: 500px;
-    margin: 2% 30%;
+  background-color: #fff;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 2% auto; /* لجعل الحاوية في الوسط */
+}
+
+h2 {
+  color: #004085;
+  margin-bottom: 20px;
+  text-align: center; /* لجعل العنوان في الوسط */
+}
+
+.form-control {
+  margin-bottom: 15px;
+  width: 100%; /* ضمان أن حقول الإدخال تمتد بعرض الحاوية */
+  padding: 10px;
+  box-sizing: border-box; /* لحساب الحشو ضمن العرض الكلي */
+}
+
+.btn {
+  width: 100%;
+  background-color: #004085;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #002752;
+}
+
+/* استعلام الوسائط لجعل التصميم متجاوبًا مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 20px;
+    margin: 5% 10%; /* تقليل الهامش على الهواتف */
   }
-  
+}
+
+@media (max-width: 480px) {
+  .profile-container {
+    margin: 5% 5%; /* هامش أصغر للشاشات الصغيرة جدًا */
+    padding: 15px;
+  }
+
   h2 {
-    color: #004085;
-    margin-bottom: 20px;
+    font-size: 20px; /* تصغير حجم العنوان */
   }
-  
-  .form-control {
-    margin-bottom: 15px;
-  }
-  
+
   .btn {
-    width: 100%;
-    background-color: #004085;
-    color: #fff;
-    &:hover {
-      background-color: #002752;
-    }
+    padding: 12px;
   }
-  
+}

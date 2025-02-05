@@ -1,3 +1,5 @@
+import { IMatiere } from "./matiere.model";
+
 export interface IProfesseur {
   id: number;
   nom: string;
@@ -16,6 +18,6 @@ export interface IProfesseur {
   introduction: string;
   education: string[];
   devise: string;
-  matieres: string[];
+  matieres: IMatiere [];
   langues: string[];
 }
