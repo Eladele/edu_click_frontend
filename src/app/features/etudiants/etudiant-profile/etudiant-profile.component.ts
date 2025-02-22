@@ -6,6 +6,7 @@ import { EtudiantService } from '../etudiant.service';
   selector: 'app-etudiant-profile',
   imports: [],
   templateUrl: './etudiant-profile.component.html',
+  standalone: true,
   styleUrl: './etudiant-profile.component.css'
 })
 export class EtudiantProfileComponent implements OnInit {

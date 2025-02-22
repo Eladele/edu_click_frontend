@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   selector: 'app-complete-profile-etud',
   imports: [ReactiveFormsModule],
   templateUrl: './complete-profile-etud.component.html',
+  standalone: true,
   styleUrl: './complete-profile-etud.component.css'
 })
 export class CompleteProfileEtudComponent  implements OnInit {
