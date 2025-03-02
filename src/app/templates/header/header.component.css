@@ -1,0 +1,205 @@
+header {
+  background-color: #1e5b87;
+  border-bottom: 2px solid #154360;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.logo img {
+  max-height: 50px;
+  margin-right: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li {
+  display: flex;
+  align-items: center;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #aad8f3;
+}
+
+nav ul li select {
+  padding: 5px;
+  font-size: 16px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  color: #333333;
+}
+
+nav ul li button {
+  background-color: #ffffff;
+  color: #1e5b87;
+  border: none;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li button:hover {
+  background-color: #aad8f3;
+  color: #1e5b87;
+}
+
+/* Affichage du menu hamburger sur les écrans mobiles */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;  /* Le menu est initialement masqué */
+  width: 250px;
+  height: 100%;
+  background-color: #1e5b87;
+  padding: 20px;
+  box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease; /* Transition pour l'animation du menu */
+  z-index: 1000;
+}
+
+.sidebar.active {
+  left: 0; /* Le menu apparaît lorsqu'il est activé */
+  z-index: 1000;
+}
+
+.sidebar ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+  color: #aad8f3;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 10px;
+    justify-content: center;
+  }
+
+  .logo {
+    justify-content: center;
+    flex: 1 100%;
+    margin-bottom: 10px;
+  }
+
+  /* Cache le menu principal (horizontal) et rend visible le menu sidebar */
+  nav ul {
+    display: none;
+    z-index: 1000;
+  }
+
+  /* Affiche le bouton hamburger */
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* Styles de base pour le header */
+header {
+  background-color: #1e5b87;
+  border-bottom: 2px solid #154360;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu principal visible sur les écrans plus grands (PC) */
+.desktop-nav {
+  display: flex;
+  gap: 20px;
+}
+
+/* Styles pour la sidebar (menu mobile) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #1e5b87;
+  transition: left 0.3s ease;
+  padding-top: 60px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+/* Menu hamburger pour mobile */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Afficher la sidebar uniquement sur les petits écrans */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none; /* Cache le menu pour les petits écrans */
+  }
+
+  /* Afficher le menu hamburger sur mobile */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    display: block;
+    z-index: 0;
+    color: rgba(0, 0, 0, .5);
+  }
+}

@@ -1,0 +1,28 @@
+body {
+    background-color: #f8f9fa;
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  .profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  
+  .profile-main {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-main h2 {
+    color: #004085;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  

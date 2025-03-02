@@ -1,0 +1,206 @@
+.card-profil {
+    max-width: 80%;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+  
+    .card-header {
+      position: relative;
+      text-align: center;
+      background-color: #f7f7f7;
+      padding: 15px;
+  
+    
+    }
+    .prof-img {
+       margin-top: 6%;
+        border-radius: 5%;
+        object-fit: cover;
+        border: 1px solid #1e5b873b;
+        max-width: 80%;
+      }
+    .card-body {
+      padding: 15px;
+  
+      .card-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+  
+        .badge-verified {
+          font-size: 14px;
+          color: #4caf50;
+          margin-left: 5px;
+        }
+      }
+  
+      .card-location {
+        color: #888;
+        font-size: 14px;
+      }
+  
+      .card-price {
+        margin: 10px 0;
+        font-size: 16px;
+        color: #1e5b87;
+        font-weight: bold;
+      }
+  
+      .card-disponibilite {
+        margin: 10px 0;
+  
+        .badge {
+          display: inline-block;
+          background-color: #e7f3fe;
+          color: #1e5b87;
+          font-size: 12px;
+          padding: 5px 10px;
+          border-radius: 20px;
+          margin-right: 5px;
+        }
+      }
+  
+      .card-options {
+        margin: 15px 0;
+  
+        .option {
+          display: flex;
+          align-items: center;
+          font-size: 14px;
+          margin-bottom: 5px;
+  
+          i {
+            margin-right: 5px;
+            color: #1e5b87;
+          }
+        }
+      }
+  
+      .btn-custom {
+        display: inline-block;
+        background-color: #1e5b87;
+        color: #fff;
+        font-size: 14px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+  
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+  }
+
+  .form-control {
+    display: flex;
+    border: 0;
+    outline: 0;
+   
+  }
+  .input-group .form-control:focus {
+    outline: none; /* Supprime la ligne bleue */
+    box-shadow: none; /* Supprime l'ombre bleue */
+    border-color: #ccc; /* Facultatif : remet une bordure standard */
+   
+  }
+
+ /* Styles pour .input-custom */
+.input-custom {
+  padding: 10px;
+  margin: 0 5px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 20px;
+  box-sizing: border-box; /* Assure que padding et border sont inclus dans la largeur */
+  /* z-index: 1000; */
+}
+
+/* Styles pour .btn-input */
+.btn-input {
+  background-color: #1e5b87;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 2px;
+  border: none; /* Supprime la bordure par défaut */
+  padding: 10px 20px; /* Ajoute un padding pour un meilleur rendu */
+  cursor: pointer; /* Change le curseur en pointeur */
+  transition: background-color 0.3s ease; /* Ajoute une transition fluide */
+} 
+
+
+.alert-lieu {
+  font-weight: bold;
+  background-color: rgba(66, 153, 225, 0.1);
+  color: #2b6cb0;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  margin: 0.25rem;
+  
+}
+.alert-dispo {
+  background-color: rgba(72, 187, 120, 0.1);
+  color: #2f855a;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  margin: 0.25rem;
+  display: inline-block;
+}
+.suggestions-list {
+  list-style: none;
+  padding: 0; 
+  margin-top: 5.3%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: absolute;
+  width: 100%;
+  /* z-index: 1000; */
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  text-align: start;
+}
+
+.suggestions-list ul {
+  list-style: none;
+  margin: 0;
+}
+
+.suggestions-list li {
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.suggestions-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.input-group-suggestions {
+  position: relative;
+}
+
+.form-control-suggestions {
+  padding-right: 40px;
+}
+
+
+@media (max-width: 768px) {
+  .suggestions-list {
+    margin-top: 12%;
+  }
+
+
+}

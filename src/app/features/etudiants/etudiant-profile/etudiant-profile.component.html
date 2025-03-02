@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<div class="container profile-container">
+  <div class="profile-main">
+    <h2>Mon profil</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>Prénom :</strong> {{ etudiant.prenom }}</p>
+      </div>
+      <div class="col-md-6">
+        <p><strong>Nom de famille :</strong> {{ etudiant.nom }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>Niveau :</strong> {{ etudiant.niveau }}</p>
+      </div>
+      <div class="col-md-6">
+        <p><strong>Email :</strong> {{ etudiant.email }}</p>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>Numéros de téléphone :</strong></p>
+        <ul>
+          @for (phoneNumber of etudiant.numerosTelephone; track phoneNumber) {
+            <li>{{ phoneNumber }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <div class="form-group">
+      <p><strong>Matières :</strong></p>
+      <ul>
+        @for (matiere of etudiant.matieres; track matiere.id) {
+          <li>{{ matiere.nom }}</li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>

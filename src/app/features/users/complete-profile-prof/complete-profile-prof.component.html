@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<div class="container mt-4">
+  <h2>Compléter le Profil</h2>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <!-- Section 1: Informations Personnelles -->
+    <div class="section" *ngIf="currentSection === 1" [ngClass]="{'active': currentSection === 1}">
+      <h4>Informations Personnelles</h4>
+      <div class="mb-3">
+        <label for="nom" class="form-label">Nom :</label>
+        <input type="text" class="form-control" id="nom" formControlName="nom" required>
+      </div>
+      <div class="mb-3">
+        <label for="prenom" class="form-label">Prénom :</label>
+        <input type="text" class="form-control" id="prenom" formControlName="prenom" required>
+      </div>
+      <div class="mb-3">
+        <label for="genre" class="form-label">Genre :</label>
+        <select class="form-control" id="genre" formControlName="genre">
+          <option>Homme</option>
+          <option>Femme</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="nextSection()">Suivant</button>
+    </div>
+
+    <!-- Section 2: Coordonnées -->
+    <div class="section" *ngIf="currentSection === 2" [ngClass]="{'active': currentSection === 2}">
+      <h4>Coordonnées</h4>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email :</label>
+        <input type="email" class="form-control" id="email" formControlName="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="telephone" class="form-label">Numéros de Téléphone :</label>
+        <input type="text" class="form-control" id="telephone" formControlName="numerosTelephone" required>
+      </div>
+      <div class="mb-3">
+        <label for="adresse" class="form-label">Adresse :</label>
+        <input type="text" class="form-control" id="adresse" formControlName="adresse">
+      </div>
+      <button type="button" class="btn btn-secondary" (click)="prevSection()">Précédent</button>
+      <button type="button" class="btn btn-primary" (click)="nextSection()">Suivant</button>
+    </div>
+
+    <!-- Section 3: Détails Professionnels -->
+    <div class="section" *ngIf="currentSection === 3" [ngClass]="{'active': currentSection === 3}">
+      <h4>Détails Professionnels</h4>
+      <div class="mb-3">
+        <label for="biographie" class="form-label">Biographie :</label>
+        <textarea class="form-control" id="biographie" formControlName="biographie"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="education" class="form-label">Éducation :</label>
+        <input type="text" class="form-control" id="education" formControlName="education">
+      </div>
+      <button type="button" class="btn btn-secondary" (click)="prevSection()">Précédent</button>
+      <button type="button" class="btn btn-primary" (click)="nextSection()">Suivant</button>
+    </div>
+
+    <!-- Section 4: Préférences d'Enseignement -->
+    <div class="section" *ngIf="currentSection === 4" [ngClass]="{'active': currentSection === 4}">
+      <h4>Préférences d'Enseignement</h4>
+      <div class="mb-3">
+        <label for="matieres" class="form-label">Matières :</label>
+        <input type="text" class="form-control" id="matieres" formControlName="matieres">
+      </div>
+      <div class="mb-3">
+        <label for="langues" class="form-label">Langues :</label>
+        <input type="text" class="form-control" id="langues" formControlName="langues">
+      </div>
+      <button type="button" class="btn btn-secondary" (click)="prevSection()">Précédent</button>
+      <button type="submit" class="btn btn-success">Soumettre</button>
+    </div>
+  </form>
+</div>

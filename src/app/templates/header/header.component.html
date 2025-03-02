@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<header>
+  <div class="logo">
+    <a href="/home">
+      <img [src]="logoUrl" alt="Profstudent Logo" width="100px" height="auto">
+    </a>
+  </div>
+
+  <!-- Menu Hamburger pour mobile -->
+  <div class="menu-toggle" (click)="toggleMenu()">☰</div>
+
+  <!-- Menu principal (visible sur les écrans PC) -->
+  <nav class="desktop-nav">
+    <ul>
+      <li><a href="/categories">Catégories</a></li>
+      <li><a href="javascript:void(0)" (click)="triggerSearch($event)">Trouvez votre professeur</a></li>
+      <li><a href="/enseignez">Enseignez sur Profstudent</a></li>
+      <li>
+        <select>
+          <option value="fr">Français</option>
+          <option value="en">English</option>
+        </select>
+      </li>
+
+      <li><a href="/login"><button>Se connecter</button></a></li>
+    </ul>
+  </nav>
+
+  <!-- Sidebar (menu mobile) -->
+  <nav [class.active]="menuOpen" class="sidebar">
+    <ul>
+      <li><a href="javascript:void(0)" (click)="triggerSearch($event)">Trouvez votre professeur</a></li>
+      <li><a href="/categories">Catégories</a></li>
+      <li><a href="/enseignez">Enseignez sur Profstudent</a></li>
+      <li>
+        <select>
+          <option value="fr">Français</option>
+          <option value="en">English</option>
+        </select>
+      </li>
+      <li><a href="/login"><button>Se connecter</button></a></li>
+\    </ul>
+  </nav>
+</header>
