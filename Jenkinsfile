@@ -9,20 +9,20 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: "${FRONTEND_REPO}"
+                git branch: 'master', url: "${FRONTEND_REPO}"
             }
         }
         
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t eladel686/edu-click-front:latest .'
+                bat 'docker build -t eladel686/edu-click-front:latest .'
             }
         }
         
         stage('Push to Docker Hub') {
             steps {
-                sh '''
-                    echo $DOCKER_CREDENTIALS_PSW | docker login -u $DOCKER_CREDENTIALS_USR --password-stdin
+                bat '''
+                    echo %DOCKER_CREDENTIALS_PSW% | docker login -u %DOCKER_CREDENTIALS_USR% --password-stdin
                     docker push eladel686/edu-click-front:latest
                 '''
             }
@@ -31,7 +31,7 @@ pipeline {
     
     post {
         always {
-            sh 'docker logout'
+            bat 'docker logout'
             cleanWs()
         }
     }
