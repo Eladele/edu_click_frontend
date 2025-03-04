@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOCKER_USERNAME = 'eladel686'
         FRONTEND_REPO = 'https://github.com/Eladele/edu_click_frontend.git'
-        DOCKER_CREDENTIALS_ID = '3f680b4f-3020-49fe-be6d-d8f57d67676a'  // ID des credentials dans Jenkins
+        DOCKER_CREDENTIALS_ID = '7d1ad480-eebe-41b9-83a7-491290aa1274'  // ID des credentials dans Jenkins
         FRONT_IMAGE = 'edu-click-front'
     }
 
