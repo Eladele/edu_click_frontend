@@ -2,12 +2,14 @@ pipeline {
     agent any
     
     environment {
-        DOCKER_CREDENTIALS = credentials('7d1ad480-eebe-41b9-83a7-491290aa1274')
+        DOCKER_USERNAME = 'eladel686'
         FRONTEND_REPO = 'https://github.com/Eladele/edu_click_frontend.git'
+        DOCKER_CREDENTIALS_ID = '7d1ad480-eebe-41b9-83a7-491290aa1274'  // ID des credentials dans Jenkins
+        FRONT_IMAGE = 'edu-click-front'
     }
-    
+
     stages {
-        stage('Checkout') {
+        stage('Checkout Frontend') {
             steps {
                 git branch: 'master', url: "${FRONTEND_REPO}"
             }
@@ -15,20 +17,30 @@ pipeline {
         
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t eladel686/edu-click-front:latest .'
+                bat "docker build -t ${DOCKER_USERNAME}/${FRONT_IMAGE}:latest ."
             }
         }
         
         stage('Push to Docker Hub') {
             steps {
+                script {
+                    withDockerRegistry([credentialsId: DOCKER_CREDENTIALS_ID, url: 'https://index.docker.io/v1/']) {
+                        bat "docker push ${DOCKER_USERNAME}/${FRONT_IMAGE}:latest"
+                    }
+                }
+            }
+        }
+
+        stage('Deploy with Docker Compose') {
+            steps {
                 bat '''
-                    echo %DOCKER_CREDENTIALS_PSW% | docker login -u %DOCKER_CREDENTIALS_USR% --password-stdin
-                    docker push eladel686/edu-click-front:latest
+                    docker-compose down
+                    docker-compose up -d
                 '''
             }
         }
     }
-    
+
     post {
         always {
             bat 'docker logout'
